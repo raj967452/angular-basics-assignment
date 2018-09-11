@@ -1,0 +1,5 @@
+<label>Please enter username</label>
+<input type="text" class="form-control" [(ngModel)]="username" >
+<p>{{username}}</p>
+
+<button class="btn btn-primary" type="submit" [disabled]="!username" (click)="onBtnClick()">Check username</button>
