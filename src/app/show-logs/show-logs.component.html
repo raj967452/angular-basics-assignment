@@ -1,0 +1,9 @@
+<div class="jumbotron">  
+  <button class="btn btn-primary" (click)="onAddLogs()">Display Details</button>
+  <p [ngStyle]="{minHeight:'30px'}"><span *ngIf="expanded == true">Secret Password = Tuna</span></p>
+</div>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor='let logs of logsData; let i = index' 
+      [ngStyle]="{backgroundColor: i > 3 ? '#1976d2' : ''}" 
+      [ngClass]="{'logs-extra': i > 3}">{{logs | date:'medium'}} </li>
+</ul>
