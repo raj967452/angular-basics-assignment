@@ -1,9 +1,24 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <app-success-alert></app-success-alert>
-      <app-warning-alert></app-warning-alert>
+  <div class="center-block">
+    <div class="row">
+      <div class="col-xs-12 col-sm-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">Panel heading without title</div>
+          <div class="panel-body">
+            <ul class='list-group'>
+              <li class="list-group-item">
+                <app-even *ngIf="gameControlData" [receivedCounter]="counter"> </app-even>
+                <app-odd *ngIf="gameControlData === false" [receivedCounter]="counter"></app-odd>
+              </li> 
+            </ul>
+            <!--<app-success-alert></app-success-alert>
+                    <app-warning-alert></app-warning-alert> -->
+          </div>
+          <div class="panel-footer">
+            <app-game-control (counterEvent)="onReceiveCounter($event)"></app-game-control>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
