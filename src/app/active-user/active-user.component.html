@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Active Users</div>
+  <div class="panel-body">
+    <div class="list-group" *ngIf="users.length; else noRecord">
+      <div class="list-group-item" *ngFor="let user of users; let i = index">
+        {{user}} <a href="#" class="text-success pull-right" (click)="toSetActiveuser(i)">Set to Inactive</a>
+      </div>
+    </div>
+    <ng-template #noRecord>
+      <h4>no user Active now...</h4>
+    </ng-template>
+  </div>
+</div>

@@ -1,9 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <app-success-alert></app-success-alert>
-      <app-warning-alert></app-warning-alert>
+      <!--app-success-alert></app-success-alert>
+      <app-warning-alert></app-warning-alert -->
+      <!---app-active-user [users] = "inactiveUsers" (userSetToActive)="onSetToActive($event)"></app-active-user>
+      <app-inactive-user [users] = "activeUsers" (userSetToInactive)="onSetToInactive($event)"></app-inactive-user-->   
+      <app-active-user [users] = "inactiveUsers"></app-active-user>
+      <app-inactive-user [users] = "activeUsers"></app-inactive-user>      
     </div>
   </div>
 </div>
-
