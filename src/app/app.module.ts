@@ -23,7 +23,7 @@ import { UserStatusService } from './services/user-status.service';
     FormsModule,
     HttpModule
   ],
-  providers: [UserStatusService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
