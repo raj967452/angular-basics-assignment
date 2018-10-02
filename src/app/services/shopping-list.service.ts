@@ -18,14 +18,11 @@ export class ShoppingListService {
   ];
   constructor() { }
   getIngredients() {
-    console.table(this.ingredients);
-    // return this.ingredients.slice();
+    return this.ingredients.slice();
   }
-  addIngredient(ingredient: Ingredient[]) {
-    console.table(...ingredient);
-    // this.ingredients.push(...ingredient);
-    console.table(this.ingredients.slice());
-    // this.ingredientsChanged.emit(this.ingredients.slice());
+  addIngredient(ingredient: Ingredient) {
+    this.ingredients.push(ingredient);
+    this.ingredientsChanged.emit(this.ingredients.slice());
   }
   addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);

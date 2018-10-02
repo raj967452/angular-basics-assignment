@@ -7,7 +7,7 @@ import { ShoppingListService } from '../../../services/shopping-list.service';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit {
-  @ViewChild('nameInput') nameInputRef:ElementRef;
+  @ViewChild('nameInput') nameInputRef: ElementRef;
   @ViewChild('amountInput') amountInpurRef: ElementRef;
   constructor( private slService: ShoppingListService) { }
 
@@ -17,8 +17,10 @@ export class ShoppingEditComponent implements OnInit {
   onAddItem() {
     const ingName = this.nameInputRef.nativeElement.value;
     const ingAmount = this.amountInpurRef.nativeElement.value;
-    // const newIngredents =;
-    this.slService.addIngredient(ingName, ingAmount);
+    const newIngredient: any = {
+      name: ingName,
+      amount: ingAmount
+    };
+    this.slService.addIngredient(newIngredient);
   }
-
 }
