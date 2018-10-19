@@ -9,20 +9,17 @@
                   class="form-control" 
                   id="projectName" 
                   placeholder="Enter project name"
-                  formControlName="projectName"
-                  required>
+                  formControlName="projectName">
                   <span class="text-danger" *ngIf="!projectForm.get('projectName').valid  && projectForm.get('projectName').touched">Please enter a Project name</span>
               </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
               <input 
-                type="email" 
+                type="text" 
                 class="form-control" 
                 id="email" 
                 placeholder="Email"
-                formControlName="email"
-                email
-                required>
+                formControlName="email">
                 <span class="text-danger" *ngIf="!projectForm.get('email').valid  && projectForm.get('email').touched">Please enter a valid email!</span>
             </div>
             <div class="form-group">
@@ -30,10 +27,14 @@
               <select id="selectProjectStatus" class="form-control" formControlName="selectProjectStatus" >
                   <!--option [value]="defaultSubScription" selected="selected">{{defaultSubScription}}
                     </option-->
-                  <option *ngFor="let option of projectStatus" [value]='option'>{{option}}</option>
+                  <option *ngFor="let option of projectStatus" [ngValue]='option'>{{option}}</option>
                 </select>
-            </div>            
+            </div>   
+            
+          <div class="form-group">
             <button type="submit" class="btn btn-primary" [disabled]="!projectForm.valid">Submit</button>
+            <span *ngIf="!projectForm.valid && projectForm.touched" class="help-block" >Please enter valid data!</span>
+          </div>
           </form>
     </div>
 

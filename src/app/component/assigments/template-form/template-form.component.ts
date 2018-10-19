@@ -20,7 +20,7 @@ export class TemplateFormComponent implements OnInit {
 
   projectForm = new FormGroup({
     'projectName': new FormControl('', Validators.required),
-    'email': new FormControl('', Validators.required),
+    'email': new FormControl('', [Validators.required, Validators.email]),
     'selectProjectStatus': new FormControl('', Validators.required)
   });
 
@@ -28,6 +28,7 @@ export class TemplateFormComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.projectForm);
+    this.projectForm.controls['selectProjectStatus'].setValue(this.defaultProjectStatus, {onlySelf: true});
   }
 
   onSubmit() {
@@ -36,5 +37,6 @@ export class TemplateFormComponent implements OnInit {
 
    // this.loginForm.reset();
   }
+ 
 
 }
