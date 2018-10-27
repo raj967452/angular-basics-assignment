@@ -1,3 +1,27 @@
-<p>
-  recipe-edit works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+      <form #f="ngForm">
+        <div class="row">
+          <div class="col-sm-5 form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              name="name"
+              ngModel>
+          </div>
+          <div class="col-sm-5 form-group">
+            <label for="amount">Amount</label>
+            <input
+              type="text"
+              id="amount"
+              class="form-control"
+              name="amount"
+              ngModel
+              pattern="^[1-9]+[0-9]*$">
+          </div>
+        </div>
+      </form>
+  </div>
+</div>>

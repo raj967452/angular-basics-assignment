@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -7,6 +9,8 @@ import { ActivatedRoute, Params} from '@angular/router';
   styleUrls: ['./recipe-edit.component.css']
 })
 export class RecipeEditComponent implements OnInit {
+  @ViewChild('f') slForm: NgForm;
+  subscription: Subscription;
   id: number;
   editMode = false;
   constructor(private route: ActivatedRoute) { }
@@ -18,6 +22,9 @@ export class RecipeEditComponent implements OnInit {
         this.editMode = param['id'] != null;
         console.log(this.editMode);
       });
+  }
+  onAddItem() {
+
   }
 
 }
