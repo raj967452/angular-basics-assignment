@@ -43,7 +43,6 @@ export class RecipeService implements OnInit {
     return this.recipes.slice();
   }
   getRecipe(index: number) {
-    console.log(index);
     return this.recipes[index];
   }
 
