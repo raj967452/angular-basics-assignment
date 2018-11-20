@@ -15,6 +15,8 @@
       <br><br>
       
         <h2>App Status: {{ appStatus | async}}</h2>
+        <!-- https://blog.xmltravelgate.com/sorting-with-pipes-in-angular-2-7370b0839468 
+        https://alligator.io/angular/reactive-forms-formarray-dynamic-fields/-->
         <div class="form-inline">
         <label>Sort By: </label> 
         <select class="form-control" [(ngModel)]="sortby" (ngModelChange)='onOptionsSelected($event)'>
