@@ -5,14 +5,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ReverseOrderPipe implements PipeTransform {
 
-  transform(value: any, name: string): any {
+  transform(value: any): any {
     if (value === '') {
       return '';
     } else {
-        for ( const item of value) {
-          item.name = item.name.split('').reverse().join('');
-        }
-        return value;
+        /*for ( const item of value) {
+          item.name = value.split('').reverse().join('');
+        }*/
+        return value.split('').reverse().join('');
     }
   }
 
