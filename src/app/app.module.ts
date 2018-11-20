@@ -6,12 +6,18 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { WarningAlertComponent } from './warning-alert/warning-alert.component';
 import { SuccessAlertComponent } from './success-alert/success-alert.component';
+import { FilterPipe } from './filter.pipe';
+import { ReverseOrderPipe } from './reverse-order.pipe';
+import { SortbyPipe } from './sortby.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     WarningAlertComponent,
-    SuccessAlertComponent
+    SuccessAlertComponent,
+    FilterPipe,
+    ReverseOrderPipe,
+    SortbyPipe
   ],
   imports: [
     BrowserModule,
