@@ -10,12 +10,13 @@ import { Recipe } from '../../../services/recipe.model';
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
-  constructor( 
+  constructor(
     private recipeService: RecipeService,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log( 'app-recipe-list--------------------' );
     this.recipes = this.recipeService.getRecipes();
   }
   onNewRecipe() {
