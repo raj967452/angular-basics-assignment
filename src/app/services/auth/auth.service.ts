@@ -34,6 +34,16 @@ export class AuthService {
 
   isAuthenticated() {
     return this.token != null;
+    /* if (this.token != null) {
+      return;
+    } else {
+      this.router.navigate(['/signin']);
+    }*/
+  }
+  getToken() {
+    firebase.auth().currentUser.getIdToken()
+    .then((token: string) => this.token = token);
+    return this.token;
   }
 
 

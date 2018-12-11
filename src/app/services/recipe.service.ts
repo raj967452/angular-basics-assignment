@@ -1,12 +1,13 @@
 import {Injectable, EventEmitter, OnInit} from '@angular/core';
 import {Recipe} from './recipe.model';
 import {Ingredient} from './ingredient.model';
-import { ShoppingListService } from '../services/shopping-list.service';
+import {ShoppingListService} from '../services/shopping-list.service';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable({providedIn: 'root'})
 export class RecipeService implements OnInit {
-  recipeSelected = new EventEmitter<Recipe>();
-  private recipes: Recipe[] = [
+  recipeSelected = new Subject < Recipe[] > ();
+  private recipes : Recipe[] = [
     {
       'name': 'Tasty Schnitzel',
       'description': 'A super-tasty Schnitzel - just awesome!',
@@ -23,7 +24,8 @@ export class RecipeService implements OnInit {
     }, {
       'name': 'Big Fat Burger',
       'description': 'What else you need to say?',
-      'imagePath': 'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
+      'imagePath': 'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_' +
+          'Cheese_Steak_Burger.jpg',
       'ingredients': [
         {
           'name': 'Buns',
@@ -35,18 +37,34 @@ export class RecipeService implements OnInit {
       ]
     }
   ];
-  constructor(private slService: ShoppingListService) {}
+  constructor(private slService : ShoppingListService) {}
 
   ngOnInit() {}
-
-  getRecipes() {
-    return this.recipes.slice();
+  setRecpies(recipes : Recipe[]) {
+    this.recipes = recipes;
+    this
+      .recipeSelected
+      .next(this.recipes.slice());
   }
-  getRecipe(index: number) {
+  getRecipes() {
+    return this
+      .recipes
+      .slice();
+  }
+  getRecipe(index : number) {
     return this.recipes[index];
   }
-
   addIngredientToShoppingList(ingredients: Ingredient[]) {
-    this.slService.addIngredients(ingredients);
+    this
+      .slService
+      .addIngredients(ingredients);
+  }
+  deleteRecipe(index: number) {
+    this
+      .recipes
+      .splice(index, 1);
+    this
+      .recipeSelected
+      .next(this.recipes.slice());
   }
 }
