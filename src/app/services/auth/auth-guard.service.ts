@@ -6,9 +6,9 @@ import {AuthService} from './auth.service';
 @Injectable({providedIn: 'root'})
 export class AuthGuardService {
 
-  constructor(private authService : AuthService, private router : Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(route : ActivatedRouteSnapshot, state : RouterStateSnapshot) {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (this.authService.isAuthenticated()) {
       return true;
     } else {
