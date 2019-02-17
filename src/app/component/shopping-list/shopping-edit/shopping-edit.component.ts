@@ -4,7 +4,7 @@ import {Store} from '@ngrx/store';
 import {Ingredient} from '../../../services/ingredient.model';
 import {NgForm} from '@angular/forms';
 import * as ShoppingListAction from '../../../store/actions/shopping-list.action';
-import * as fromShoppingList from '../../../store/reducer/shopping-list.reducer';
+import * as fromApp from '../../../store/app.reducres';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -20,7 +20,7 @@ OnDestroy {
   editMode = false;
   editedItemIndex: number;
 
-  constructor(private store: Store < fromShoppingList.AppState >) {}
+  constructor(private store: Store < fromApp.AppState >) {}
 
   ngOnInit() {
     this.subscription = this

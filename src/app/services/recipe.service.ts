@@ -41,14 +41,10 @@ export class RecipeService implements OnInit {
   ngOnInit() {}
   setRecpies(recipes: Recipe[]) {
     this.recipes = recipes;
-    this
-      .recipeSelected
-      .next(this.recipes.slice());
+    this.recipeSelected.next(this.recipes.slice());
   }
   getRecipes() {
-    return this
-      .recipes
-      .slice();
+    return this.recipes.slice();
   }
   getRecipe(index: number) {
     return this.recipes[index];
